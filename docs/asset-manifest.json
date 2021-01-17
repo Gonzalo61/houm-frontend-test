@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8c04f16d.chunk.css",
+    "main.js": "/static/js/main.b10bbe7d.chunk.js",
+    "main.js.map": "/static/js/main.b10bbe7d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f301f866.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f301f866.js.map",
+    "static/js/2.b52ea004.chunk.js": "/static/js/2.b52ea004.chunk.js",
+    "static/js/2.b52ea004.chunk.js.map": "/static/js/2.b52ea004.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.8c04f16d.chunk.css.map": "/static/css/main.8c04f16d.chunk.css.map",
+    "static/js/2.b52ea004.chunk.js.LICENSE.txt": "/static/js/2.b52ea004.chunk.js.LICENSE.txt",
+    "static/media/bug.png": "/static/media/bug.e6834bb6.png",
+    "static/media/dark.png": "/static/media/dark.4eb7ce07.png",
+    "static/media/dragon.png": "/static/media/dragon.2db03691.png",
+    "static/media/electric.png": "/static/media/electric.f88dc7ad.png",
+    "static/media/fairy.png": "/static/media/fairy.21652948.png",
+    "static/media/fighting.png": "/static/media/fighting.af2443b7.png",
+    "static/media/fire.png": "/static/media/fire.4ce27196.png",
+    "static/media/flying.png": "/static/media/flying.cb6bd47c.png",
+    "static/media/ghost.png": "/static/media/ghost.d6546075.png",
+    "static/media/grass.png": "/static/media/grass.ac0a5a65.png",
+    "static/media/ground.png": "/static/media/ground.788861a5.png",
+    "static/media/ice.png": "/static/media/ice.bebc4ee5.png",
+    "static/media/normal.png": "/static/media/normal.59c8ad3e.png",
+    "static/media/poison.png": "/static/media/poison.565e672c.png",
+    "static/media/pokeball.78720584.png": "/static/media/pokeball.78720584.png",
+    "static/media/psychic.png": "/static/media/psychic.8d2b857b.png",
+    "static/media/rock.png": "/static/media/rock.b8b13c3d.png",
+    "static/media/steel.png": "/static/media/steel.a4413931.png",
+    "static/media/water.png": "/static/media/water.e9049e98.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f301f866.js",
+    "static/js/2.b52ea004.chunk.js",
+    "static/css/main.8c04f16d.chunk.css",
+    "static/js/main.b10bbe7d.chunk.js"
+  ]
+}

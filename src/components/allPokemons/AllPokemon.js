@@ -18,7 +18,7 @@ export const AllPokemon = () => {
     const [currenPage, setCurrentPage] = useState(`${POKE_API}limit=${limit}`)
     const [typePokemon, setTypePokemon] = useState("");
     const [pokemones, setPokemones] = useState([]);
-    const [pokemonFilter, setPokemonFilter] = useState('false');
+    const [pokemonFilter, setPokemonFilter] = useState();
     const [typeGeneral, setTypeGeneral] = useState([]);
 
     const handleChange = (e) => {
