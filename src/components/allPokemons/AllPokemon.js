@@ -7,7 +7,6 @@ import { TYPE_API } from '../../config/config';
 
 
 const POKE_API = "https://pokeapi.co/api/v2/pokemon/?offset=0&";
-// const TYPE_API = "https://pokeapi.co/api/v2/type/";
 
 export const AllPokemon = () => {
 
@@ -182,7 +181,6 @@ export const AllPokemon = () => {
                       <div className = "pokemon-container">
                         {
                           pokemonFilter.length > 0 && pokemonFilter.map(pokemon => (
-                            //<PokemonCard key={pokemon.id} {...pokemon} />
                             <PokemonCard key={pokemon.id} pokemon = {pokemon} />
                           ))
                         }

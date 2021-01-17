@@ -5,10 +5,10 @@ import { AppRouter } from './routers/AppRouter'
 export const PokemonApp = () => {
     return (
         <>
-        <AppRouter/>
-        <footer>
-            <Footer/>
-        </footer>
+            <AppRouter/>
+            <footer>
+                <Footer/>
+            </footer>
         </>
     )
 }

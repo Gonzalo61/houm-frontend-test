@@ -93,9 +93,7 @@ export const PokemonGeneraciones = () => {
                                 .then(res => {
                                     if(res.ok) {
                                     return res.json();
-                                    } else {
-                                        console.log();
-                                    }
+                                    } 
                                 })
                   })
                   return Promise.all(promiesesArray)
