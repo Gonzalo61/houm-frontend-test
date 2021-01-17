@@ -4,7 +4,6 @@ Este es un proyecto responsive en el cual se muestra un listado de pokémon los 
 
 ## Comenzando 🚀
 
-
 ### Pre-requisitos 📋
 
 Se debe tener instalado:
@@ -17,8 +16,6 @@ Clonar el repositorio, abrir el cmd y ejecutar el comando 'npm install' para rec
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
 * [React.js](https://es.reactjs.org/)
 * [Create React App](https://create-react-app.dev/)
 * [NPM](https://www.npmjs.com/) - Manejador de dependencias
@@ -27,7 +24,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 ## Autores ✒️
 
-* **Gonzalo Corsánigo** - *Desarrollo* - [villanuevand](https://github.com/Gonzalo61)
+* **Gonzalo Corsánigo** - *Desarrollo* - [Gonzalo Corsánigo](https://github.com/Gonzalo61)
 
 
 
