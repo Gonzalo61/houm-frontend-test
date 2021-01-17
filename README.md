@@ -7,13 +7,13 @@ Este es un proyecto responsive en el cual se muestra un listado de pokémon los 
 ### Pre-requisitos 📋
 
 Se debe tener instalado:
--npm
--npm cli
+* npm
+* npm cli
 
 ### Instalación 🔧
 
-Clonar el repositorio, abrir el cmd y ejecutar el comando 'npm install' para recontruir los paquetes de npm
-Para ejecutar sedebe ejecutar el comando 'npm start'
+* Clonar el repositorio, abrir el cmd y ejecutar el comando 'npm install' para recontruir los paquetes de npm.
+* Para ejecutar se debe ejecutar el comando 'npm start'.
 
 ## Construido con 🛠️
 
