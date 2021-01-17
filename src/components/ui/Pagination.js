@@ -2,6 +2,7 @@ import React from 'react'
 import pokeball from '../../assets/pokeball.png'
 
 export const Pagination = ({onClickHandlePrev, onClickHandleNext}) => {
+    
     return (
         <div className="pagination">
             { onClickHandlePrev && <button onClick={onClickHandlePrev}>Anterior</button>}

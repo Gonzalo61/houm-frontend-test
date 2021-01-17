@@ -193,8 +193,8 @@ export const AllPokemon = () => {
                       </div> 
                   )}
                 </>
-                  <Pagination onClickHandlePrev={ onClickHandlePrev ? onClickHandlePrev: null} 
-                              onClickHandleNext={ onClickHandleNext ? onClickHandleNext: null} />
+                  <Pagination onClickHandlePrev={ prevPage ? onClickHandlePrev: null} 
+                              onClickHandleNext={ nextPage ? onClickHandleNext: null} />
 
               </>
             )}

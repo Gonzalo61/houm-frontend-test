@@ -6,8 +6,8 @@ import {
     Redirect
 } from 'react-router-dom';
 import { AllPokemon } from '../components/allPokemons/AllPokemon';
+import { PokemonGeneraciones } from '../components/generaciones/PokemonGeneraciones';
 import { SearchPokemonScreen } from '../components/searchPokemon/SearchPokemonScreen';
-import { TipoPokemon } from '../components/tipoPokemon/TipoPokemon';
 import { Navbar } from '../components/ui/Navbar';
 
 export const AppRouter = () => {
@@ -21,7 +21,7 @@ export const AppRouter = () => {
 
             <Route exact path="/search/:pokemonName" component={SearchPokemonScreen} />
 
-            <Route exact path="/type-pokemon" component={TipoPokemon} />
+            <Route exact path="/generacion-pokemon" component={PokemonGeneraciones} />
 
             <Redirect to="/all-pokemons"/>
 

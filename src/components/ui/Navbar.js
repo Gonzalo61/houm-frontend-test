@@ -2,9 +2,7 @@ import React, {useState}  from 'react'
 import { Link, NavLink, useHistory } from 'react-router-dom'
 import logo from '../../assets/houm-icono.png'
 
-export const Navbar = ({setPokemones}) => {
-
-    // const SEARCH_API = "https://pokeapi.co/api/v2/pokemon/";
+export const Navbar = () => {
 
     const [inputValue, setInputValue] = useState('');
     const history = useHistory();
@@ -44,8 +42,8 @@ export const Navbar = ({setPokemones}) => {
                         <NavLink activeClassName="active" className="nav-item nav-link" exact to="/all-pokemons">
                             All Pokémon
                         </NavLink>
-                        <NavLink activeClassName="active" className="nav-item nav-link" exact to="/type-pokemon">
-                            Típo Pokémon
+                        <NavLink activeClassName="active" className="nav-item nav-link" exact to="/generacion-pokemon">
+                            Generaciones Pokémon
                         </NavLink>
                     </ul>
                     <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
