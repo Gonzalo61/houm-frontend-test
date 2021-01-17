@@ -7,8 +7,6 @@ export const Navbar = ({setPokemones}) => {
     // const SEARCH_API = "https://pokeapi.co/api/v2/pokemon/";
 
     const [inputValue, setInputValue] = useState('');
-
-
     const history = useHistory();
 
 
@@ -21,11 +19,9 @@ export const Navbar = ({setPokemones}) => {
     }
 
     const handleSubmit = (e) => {
-
         e.preventDefault();
-
+        
         if(inputValue.trim().length > 0 ) {
-
             history.push(`/search/${inputValue}`);
             setInputValue('')
             
@@ -45,9 +41,6 @@ export const Navbar = ({setPokemones}) => {
             
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        {/* <li className="nav-item active">
-                        <a className="nav-link" href="#">Pokemones <span className="sr-only">(current)</span></a>
-                        </li> */}
                         <NavLink activeClassName="active" className="nav-item nav-link" exact to="/all-pokemons">
                             All Pokémon
                         </NavLink>
@@ -56,54 +49,11 @@ export const Navbar = ({setPokemones}) => {
                         </NavLink>
                     </ul>
                     <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
-                            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={inputValue} onChange = { handleInputChange } />
-                        
-                        {/* <Link to={`./search/${inputValue}`} >    */}
-                            <button className="btn btn-back btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                        {/* </Link> */}
+                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={inputValue} onChange = { handleInputChange } />
+                        <button className="btn btn-back btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
             </nav>
         </>
     )
 }
-
-// import React from 'react'
-// import { Link, NavLink } from 'react-router-dom'
-
-// export const Navbar = () => {
-//     return (
-//         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            
-            // <Link 
-            //     className="navbar-brand" 
-            //     to="/"
-            // >
-            //     Asociaciones
-            // </Link>
-
-//             <div className="navbar-collapse">
-//                 <div className="navbar-nav">
-
-                    // <NavLink 
-                    //     activeClassName="active"
-                    //     className="nav-item nav-link" 
-                    //     exact
-                    //     to="/marvel"
-                    // >
-                    //     Marvel
-                    // </NavLink>
-
-//                     <NavLink 
-//                         activeClassName="active"
-//                         className="nav-item nav-link" 
-//                         exact
-//                         to="/dc"
-//                     >
-//                         DC
-//                     </NavLink>
-//                 </div>
-//             </div>
-//         </nav>
-//     )
-// }

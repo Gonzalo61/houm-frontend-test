@@ -4,9 +4,9 @@ import './index.css';
 import { PokemonApp } from './PokemonApp';
 
 ReactDOM.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <PokemonApp />,
-  //</React.StrictMode>,
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

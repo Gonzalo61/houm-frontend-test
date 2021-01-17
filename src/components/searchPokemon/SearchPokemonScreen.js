@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { PokemonCard } from '../pokemonCard/PokemonCard';
 import { Link } from 'react-router-dom'
+import { Loader } from '../ui/Loader';
+import { NoSearchPokemon } from '../ui/NoSearchPokemon';
+import { SEARCH_API } from '../../config/config';
 
-export const SearchPokemonScreen = (prop) => {
+export const SearchPokemonScreen = () => {
     
-    const SEARCH_API = "https://pokeapi.co/api/v2/pokemon/";
-
+    const [loader, setLoader] = useState(true);
     
     const params = useParams();
 
@@ -14,9 +16,8 @@ export const SearchPokemonScreen = (prop) => {
 
 
     useEffect( () => {
-      
+        setLoader(true)
         try {
-
             fetch(SEARCH_API+(params.pokemonName))
                 .then(res => {
                   if(res.ok) {
@@ -27,55 +28,57 @@ export const SearchPokemonScreen = (prop) => {
                 }).then(data => {
                       const pokemon = [];
                       pokemon.push(data)
-                      setPokemonSearch(pokemon) 
+                      setPokemonSearch(pokemon)
+                      setLoader(false) 
                 }).catch((error) => {
                   console.log(error)
                   setPokemonSearch([]);
-                })
-                
+                  setLoader(false) 
+                }) 
       
           } catch (error) {
             console.log(error);
           }
     }, [params]);
 
-    return (
-      <>
-      <div>
-        <div className="pagination search">
-              <Link to="/all-pokemons">
-                <button>Ver Todos</button>
-              </Link>
-        </div>
-      </div>
-      
-      <>
-      {
-        pokemonSearch.length === 0? (
-          <div className="container">
-            <div className="card w-100">
-                <div className="card-body">
-                  <h4 className="card-title">¡¡Lo Sentimos!!</h4>
-                  <p className="card-text">No existe ningún pokémon con el nombre: {params.pokemonName}, porfavor realice otra búsqueda si lo desea.
-                    Muchas gracias
-                  </p>  
-              </div>
-            </div>
-          </div> 
+    return (   
 
-          ) : (<div className = "pokemon-container">
-          {
-            pokemonSearch.length > 0 && pokemonSearch.map(pokemon => (
-              // <PokemonCard key={pokemon.id} {...pokemon} />
-              <PokemonCard key={pokemon.id} pokemon={pokemon} />
-            ))
-          }
-        </div>
-        )}
-    </>
+      <>
 
-    
-    </>
-        
+        {
+          loader ? (
+
+            <Loader></Loader>
+
+          ) : (
+              <>
+                <div>
+                  <div className="pagination search">
+                        <Link to="/all-pokemons">
+                          <button>Ver Todos</button>
+                        </Link>
+                  </div>
+                </div>
+              
+                <>
+                  {
+                    pokemonSearch.length === 0? (
+                        <NoSearchPokemon pokemonName = {params.pokemonName} />
+                        ) : (
+                        <div className = "pokemon-container">
+                          {
+                            pokemonSearch.length > 0 && pokemonSearch.map(pokemon => (
+                              <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                            ))
+                          }
+                        </div>
+                        )
+                  }
+                </>
+              </>
+          )
+        }
+      </>
     )
 }
+               

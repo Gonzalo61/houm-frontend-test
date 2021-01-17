@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { PokemonCard } from '../pokemonCard/PokemonCard';
-import pokeball from '../../assets/pokeball.png'
 import { SinCard } from '../ui/SinCard';
 import { Pagination } from '../ui/Pagination';
+import { Loader } from '../ui/Loader';
+import { TYPE_API } from '../../config/config';
 
 
 const POKE_API = "https://pokeapi.co/api/v2/pokemon/?offset=0&";
-const TYPE_API = "https://pokeapi.co/api/v2/type/";
+// const TYPE_API = "https://pokeapi.co/api/v2/type/";
 
 export const AllPokemon = () => {
 
@@ -66,9 +67,7 @@ export const AllPokemon = () => {
       } else {
         setPokemonFilter(pokemones); 
       }
-         
       return () => {
-
       }
 
     }, [typePokemon, pokemones])
@@ -78,7 +77,13 @@ export const AllPokemon = () => {
       setLoader(true)
       try {
         fetch(currenPage)
-                .then(res => res.json())
+                .then(res => {
+                  if(res.ok) {
+                    return res.json();
+                  } else {
+                    throw new Error ('Problemas al mostrar pokémon')
+                  }
+                })
                 .then(data => {
                   setNextPage(data.next);
                   setPrevPage(data.previous);
@@ -137,12 +142,10 @@ export const AllPokemon = () => {
                                 <option value="" defaultValue>Todos</option>
                                 {typeGeneral.map( (type) => {  
                                         let nameCapitalize = type.name.charAt(0).toUpperCase() + type.name.slice(1)
-                                          return ( 
-                                            
+                                          return (            
                                             <option value={type.name} key={type.name}>
                                                 {nameCapitalize}
-                                            </option>
-                                          
+                                            </option>        
                                           )
                                       })}
                               </select>
@@ -169,9 +172,7 @@ export const AllPokemon = () => {
             {
 
           loader === true ? (
-              <div className="loader">
-                <img src={pokeball} alt="poke"/>
-              </div>
+              <Loader/>
 
             ) : (
               <>
