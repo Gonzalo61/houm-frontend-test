@@ -13,16 +13,19 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+
+/* POKÉMON CARD */
+
 .pokemon {
     background-color: #f7f0f0;
     border: #ff5000 solid 1px;
     border-radius: 20px;
     box-shadow: 10px 8px 5px rgba(0, 0, 0, 0.1);
     margin: 1rem;
-    width: 250px;
+    min-width: 250px;
     overflow: hidden;
     transition: transform .2s;
-    /* Animation */
+    width: 250px;
 }
 
 .pokemon:hover {
@@ -30,10 +33,10 @@ body {
 }
 
 .pokemon-img {
-    display: flex;
-    justify-content: center;
     background-color: white;
     border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: center;
     height: 250px;
 }
 
@@ -43,14 +46,13 @@ body {
 }
 
 .pokemon-nro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    border-radius: 15px;
     align-items: center;
     background-color: rgba(0, 0, 0, .2);
+    border-radius: 15px;
     color: black;
+    display: flex;
+    justify-content: center;
+    width: 50px;
 }
 
 .pokemon-nro h2 {
@@ -64,27 +66,26 @@ body {
 
 .pokemon-container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     margin: 20px;
     padding-bottom: 50px;
 }
 
 .pokemon-info {
-    /* display: flex; */
     padding: 1rem;
 }
 
 .pokemon-name {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .pokemon-data {
+    align-items: flex-end;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
 }
 
 .pokemon h2 {
@@ -96,20 +97,15 @@ span {
     font-weight: 600;
 }
 
-.bg-navbar {
-    background-color: #ff5000;
-    font-weight: 600;
-}
-
 .card {
     margin-top: 10px !important;
 }
 
 hr {
+    border-top: 2px solid #ff5000;
     margin-top: 4px;
     margin-bottom: 0px;
     width: 70%;
-    border-top: 2px solid #ff5000;
 }
 
 .hp {
@@ -128,20 +124,59 @@ hr {
 }
 
 .datos-name {
-    margin-top: 5px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 55px;
-    border-radius: 15px;
     background-color: rgba(255, 80, 0, .5);
+    border-radius: 15px;
     color: white;
+    display: flex;
     font-weight: 600;
+    justify-content: center;
+    margin-top: 5px;
+    width: 55px;
 }
 
 .icon-type {
     padding: 1px !important;
     width: 35px;
+}
+
+
+/* Navbar */
+
+.bg-navbar {
+    background-color: #ff5000;
+    font-weight: 600;
+}
+
+
+/* Button */
+
+.pagination button {
+    background-color: rgba(255, 80, 0, .7);
+    border-color: white;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    height: 40px;
+    margin: 0px 20px 20px 20px;
+    outline: none;
+    width: 150px;
+}
+
+.pagination button:hover {
+    background-color: rgba(255, 80, 0, .9);
+}
+
+.pagination button:active {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    color: grey;
+    text-decoration: none;
+}
+
+.button-pokeball img {
+    width: 50px;
 }
 
 .pagination {
@@ -157,41 +192,20 @@ hr {
     margin: 20px;
 }
 
-.pagination button {
-    margin: 0px 20px 20px 20px;
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: white;
-    border-color: white;
-    background-color: rgba(255, 80, 0, .7);
-    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
-    font-weight: 500;
-    outline: none;
-}
 
-.pagination button:hover {
-    background-color: rgba(255, 80, 0, .9);
-}
-
-.pagination button:active {
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
-    color: grey;
-}
+/* Footer */
 
 .container-footer {
+    align-content: center;
     background-color: #ff5000;
+    bottom: 0;
+    display: flex;
     height: 40px;
+    justify-content: center;
     margin: 0px;
     padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
     position: absolute;
     width: 100%;
-    bottom: 0;
 }
 
 .container-footer h6 {
@@ -199,20 +213,19 @@ hr {
     margin: 0;
 }
 
-.button-pokeball img {
-    width: 50px;
-}
+
+/* Loader */
 
 .loader {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 500px;
 }
 
 .loader img {
-    width: 125px;
     animation: spin 1s linear infinite;
+    width: 125px;
 }
 
 @-moz-keyframes spin {
