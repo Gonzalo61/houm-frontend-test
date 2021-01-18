@@ -1,6 +1,6 @@
 # PókeApp
 
-Este es un proyecto responsive en el cual se muestra un listado de pokémon los cuales se visualizan en hero cards, donde se puede observar una imagen del recurso y sus caracteristicas principales, además la aplicación contiene filtros de búsqueda para mejorar la experiencia de usuario.
+Este es un proyecto responsive en el cual se muestra un listado de pokémon los cuales se visualizan en hero cards, donde se puede observar una imagen del recurso y sus características principales, además la aplicación contiene filtros de búsqueda para mejorar la experiencia de usuario.
 
 ## Comenzando 🚀
 
