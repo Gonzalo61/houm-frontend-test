@@ -13,7 +13,7 @@ Se debe tener instalado:
 ### Instalación 🔧
 
 * Clonar el repositorio, abrir el cmd y ejecutar el comando 'npm install' para recontruir los paquetes de npm.
-* Para ejecutar se debe ejecutar el comando 'npm start'.
+* Para desplegar la aplicación en local se debe ejecutar el comando 'npm start'.
 
 ## Construido con 🛠️
 
