@@ -1,6 +1,5 @@
 import React, {useState}  from 'react'
 import { Link, NavLink, useHistory } from 'react-router-dom'
-import logo from '../../assets/houm-icono.png'
 
 export const Navbar = () => {
 
@@ -30,7 +29,6 @@ export const Navbar = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-navbar">
                     <Link className="navbar-brand" to="/">
-                        <img src={logo} width="50" alt="" />
                         Houm Test
                     </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
