@@ -47,8 +47,8 @@ export const Navbar = () => {
                         </NavLink>
                     </ul>
                     <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={inputValue} onChange = { handleInputChange } />
-                        <button className="btn btn-back btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                        <input className="form-control mr-sm-2" type="search" placeholder="Buscar por nombre o id" aria-label="Search" value={inputValue} onChange = { handleInputChange } />
+                        <button className="btn btn-primary btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
                     </form>
                 </div>
             </nav>
