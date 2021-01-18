@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react'
-import { GENE_API, SEARCH_API, TYPE_API } from '../../config/config'
+import { GENE_API, SEARCH_API } from '../../config/config'
+import { ListaGeneraciones } from '../ListaGeneraciones/ListaGeneraciones';
 import { PokemonCard } from '../pokemonCard/PokemonCard';
+import { TipoPokemon } from '../tipoPokemon/TipoPokemon';
+import { GeneSinCard } from '../ui/GeneSinCard';
 import { Loader } from '../ui/Loader';
 
 export const PokemonGeneraciones = () => {
 
     const [generacion, setGeneracion] = useState('1');
-    const [generacionList, setGeneracionList] = useState([]);
     const [pokemones, setPokemones] = useState([]);
     const [pokemonFilter, setPokemonFilter] = useState([]);
     const [loader, setLoader] = useState(true);
-    const [typeGeneral, setTypeGeneral] = useState([]);
     const [typeFilter, setTypeFilter] = useState('');
 
     const changeHandleGeneracion = (e) => {
@@ -22,34 +23,6 @@ export const PokemonGeneraciones = () => {
         const value = e.target.value;
         setTypeFilter(value)
     }
-
-    //////////////// GUARDO LA LISTA DE GENERACIONES /////////////////////////
-    useEffect(() => {
-        try {
-            fetch(GENE_API)
-                    .then(res => {
-                      if(res.ok) {
-                        return res.json();
-                      } else {
-                        throw new Error ('Problemas al mostrar pokémon')
-                      }
-                    })
-                    .then(data => {
-                      let results = data.results;
-                      let promiesesArray = results.map(result => {
-                        return fetch(result.url)
-                                  .then(response => response.json());
-                      })
-                      return Promise.all(promiesesArray)
-                    }).then((data) => {
-                        setGeneracionList(data)
-                    })   
-          } catch (error) {
-            console.log(error);
-          }   
-        
-    }, [])
-
     
     //// PERSISTO EL FILTRO DE BÚSQUEDA
     useEffect(() => {
@@ -108,24 +81,6 @@ export const PokemonGeneraciones = () => {
 
     }, [generacion])
 
-    // OBTIENE TODOS LOS TIPOS DE POKÉMON
-    useEffect( () => {
-        try {
-          fetch(TYPE_API)
-                  .then(res => res.json())
-                  .then(data => {
-                    let results = data.results;
-                    setTypeGeneral(results);
-                  })
-        } catch (error) {
-          console.log(error);
-        }
-        return () => {
-  
-        }
-      }, []);
-
-
     return (
         <>
           <div className="container">
@@ -137,31 +92,10 @@ export const PokemonGeneraciones = () => {
                       <form>
                         <div className="form-row justify-content-between">
                             <div className="form-group col-md-2">
-                                <label htmlFor="inputState">Generación</label>
-                                <select onChange={changeHandleGeneracion} id="inputState" className="form-control">
-                                    {generacionList.map( (gene) => {  
-                                            let nameCapitalize = gene.main_region.name.charAt(0).toUpperCase() + gene.main_region.name.slice(1)
-                                            return (            
-                                                <option value={gene.id} key={gene.id}>
-                                                    {nameCapitalize}
-                                                </option>        
-                                            )
-                                        })}
-                                </select>
+                                <ListaGeneraciones changeHandleGeneracion = {changeHandleGeneracion} />
                             </div>
                             <div className="form-group col-md-2">
-                                <label htmlFor="inputState">Tipo</label>
-                                <select onChange={changeHandleType} id="inputState" className="form-control">
-                                    <option value="" defaultValue>Todos</option>
-                                    {typeGeneral.map( (type) => {  
-                                            let nameCapitalize = type.name.charAt(0).toUpperCase() + type.name.slice(1)
-                                            return (            
-                                                <option value={type.name} key={type.name}>
-                                                    {nameCapitalize}
-                                                </option>        
-                                            )
-                                        })}
-                                </select>
+                                <TipoPokemon changeHandleType={changeHandleType} />
                             </div>
                         </div>
                       </form>
@@ -191,16 +125,9 @@ export const PokemonGeneraciones = () => {
                             }
                         </div>
                     ) : (
-                        <div className="container">
-                            <div className="card w-100">
-                                <div className="card-body">
-                                    <h4 className="card-title">¡¡Lo Sentimos!!</h4>
-                                    <p className="card-text">No existe ningún pokémon que coincida con su filtro de búsqueda. 
-                                    </p>  
-                                </div>
-                            </div>
-                        </div> 
-                  )}
+                        <GeneSinCard />
+                        )
+                  }
                 </>
               </>
             )}

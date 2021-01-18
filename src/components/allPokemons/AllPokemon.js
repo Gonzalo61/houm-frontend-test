@@ -3,7 +3,8 @@ import { PokemonCard } from '../pokemonCard/PokemonCard';
 import { SinCard } from '../ui/SinCard';
 import { Pagination } from '../ui/Pagination';
 import { Loader } from '../ui/Loader';
-import { TYPE_API } from '../../config/config';
+import { TipoPokemon } from '../tipoPokemon/TipoPokemon';
+import { LimitePokemon } from '../limitePokemon/LimitePokemon';
 
 
 const POKE_API = "https://pokeapi.co/api/v2/pokemon/?offset=0&";
@@ -18,7 +19,6 @@ export const AllPokemon = () => {
     const [typePokemon, setTypePokemon] = useState("");
     const [pokemones, setPokemones] = useState([]);
     const [pokemonFilter, setPokemonFilter] = useState();
-    const [typeGeneral, setTypeGeneral] = useState([]);
 
     const handleChange = (e) => {
       setLoader('true')
@@ -106,25 +106,6 @@ export const AllPokemon = () => {
       }
     }, [limit, currenPage]);
 
-
-// OBTIENE TODOS LOS TIPOS DE POKÉMON
-    useEffect( () => {
-      try {
-        fetch(TYPE_API)
-                .then(res => res.json())
-                .then(data => {
-                  let results = data.results;
-                  setTypeGeneral(results);
-                })
-      } catch (error) {
-        console.log(error);
-      }
-      return () => {
-
-      }
-    }, []);
-
-
     return (
         <>
           <div className="container">
@@ -135,32 +116,11 @@ export const AllPokemon = () => {
                     <div>
                       <form>
                         <div className="form-row justify-content-between">
-                            <div className="form-group col-md-2">
-                              <label htmlFor="inputState">Tipo</label>
-                              <select onChange={changeHandleType} id="inputState" className="form-control">
-                                <option value="" defaultValue>Todos</option>
-                                {typeGeneral.map( (type) => {  
-                                        let nameCapitalize = type.name.charAt(0).toUpperCase() + type.name.slice(1)
-                                          return (            
-                                            <option value={type.name} key={type.name}>
-                                                {nameCapitalize}
-                                            </option>        
-                                          )
-                                      })}
-                              </select>
-                            </div>
-                              <div className="form-group col-md-1">
-                                <div>
-                                  <label htmlFor="inputState">Mostrar: </label>
-                                  <select id="inputState" className="form-control" onChange={handleChange} >
-                                    <option value="10" defaultValue>10</option>
-                                    <option value="20" >20</option>
-                                    <option value="30" >30</option>
-                                    <option value="50" >50</option>
-                                    <option value="100" >100</option>
-                                    <option value="151" >151</option>
-                                  </select> 
-                                </div>
+                          <div className="form-group col-md-2">
+                            <TipoPokemon changeHandleType={changeHandleType} />
+                          </div>
+                          <div className="form-group col-md-1">
+                            <LimitePokemon handleChange = {handleChange} />   
                           </div>
                         </div>
                       </form>
