@@ -1,26 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { TYPE_API } from '../../config/config';
 
 export const TipoPokemon = ({changeHandleType}) => {
     
     const [typeGeneral, setTypeGeneral] = useState([]);
 
+    const isMounted = useRef(true);
+
+    useEffect(() => {
+        return () => {
+          isMounted.current = false;
+        }
+      }, [])
+
+
     // OBTIENE TODOS LOS TIPOS DE POKÉMON
     useEffect( () => {
-        try {
-          fetch(TYPE_API)
-                  .then(res => res.json())
-                  .then(data => {
+        fetch(TYPE_API)
+            .catch(err => console.log(err))
+            .then(res => res.json())
+            .then(data => {
+                if(isMounted.current) {
                     let results = data.results;
                     setTypeGeneral(results);
-                  })
-        } catch (error) {
-          console.log(error);
-        }
-        return () => {
-  
-        }
-      }, []);
+                }
+            })
+    }, []);
 
 
     return (

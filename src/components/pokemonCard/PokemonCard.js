@@ -51,7 +51,7 @@ export const PokemonCard = ({pokemon}) => {
                         </div>
                         <div>
                             <div className="info-center">
-                                <span>{pokemon.height}m</span>
+                                <span>{pokemon.height/10}m</span>
                             </div>
                             <div className="info-center">
                                 <span className="datos-name">Altura</span>
